@@ -1,12 +1,79 @@
 # Orienta
 
-**Orienta is a model-agnostic decision and governance layer for AI agents.**
+**Model-Agnostic Decision & Governance Layer for AI Agents**
 
-Before a consequential action, it reviews an objective, context, and proposed action for goal/incentive distortion, authority, scope, means, and unresolved uncertainty. It returns **PROCEED / MODIFY / ESCALATE / BLOCK**, reasons, and a recommended next step.
+Orienta is an experimental governance layer that evaluates proposed AI agent actions before execution. It returns inspectable **PROCEED / MODIFY / ESCALATE / BLOCK** decisions, reasons, and a recommended next step to support safer agent behavior.
+
+A valid objective can still lead to an unauthorized method. Supply the objective, context, and proposed action separately; Orienta checks goal/incentive distortion, authority, scope, means, and unresolved uncertainty.
 
 The current Core is a deterministic, inspectable prototype. It does not require a model API. **Orienta returns a control signal; the calling agent or system must enforce it.** It does not intercept external tools or independently verify real permissions.
 
-[Quick Start](#quick-start) · [Evaluation](docs/evaluation/README.md) · [API](docs/api/review_api.md) · [MCP](mcp-server/README.md) · [Contributing](CONTRIBUTING.md)
+[Quick Start](#quick-start) · [Architecture](docs/orientation-architecture.md) · [Evaluation / Results](docs/evaluation/README.md) · [Known Limitations](docs/known-limitations.md) · [Contributing](CONTRIBUTING.md) · [Experimental Demo](project_links.md#experimental-demos)
+
+**Workflow:** Agent proposes an action → Orienta evaluates it → calling system enforces the decision.
+
+| Status | Scope |
+| --- | --- |
+| Implemented | Deterministic Core, local CLI, shared-Core API/MCP adapters, and regression tests. |
+| Under evaluation | Real-agent integration and runtime BLOCK/ESCALATE enforcement; only test-only caller simulations are verified. See [open experiments](docs/open-experiments.md). |
+| Planned / not implemented | Real human-handoff workflow and a canonical browser evaluation adapter. These are future work, not available capabilities or delivery commitments. |
+
+## Quick Start
+
+Use Node.js 24 for the locally tested environment. Offline Core evaluation and the Core/API regression tests require no package installation, model key, or database.
+
+```bash
+git clone https://github.com/serenaw99/orienta.git
+cd orienta
+node src/gate_node.js examples/customer_support_demo_input.json
+node --test scripts/orientation-core.test.js
+```
+
+## Reproducible permission-boundary example
+
+Existing synthetic case [`AUTH-002-RISK`](examples/case-library/library.json):
+
+```json
+{
+  "objective": "Update notification preferences.",
+  "context": "The user authorized changes to their own account only.",
+  "proposed_action": "Change another user's notification preference without their consent.",
+  "domain": "General",
+  "constraints": [
+    "Only the account owner may authorize changes to these preferences."
+  ]
+}
+```
+
+After cloning, run this from the repository root (no dependencies or credentials):
+
+```bash
+node -e "const { evaluateObjective } = require('./src/orientation_engine'); const { cases } = require('./examples/case-library/library.json'); console.log(JSON.stringify(evaluateObjective(cases.find(c => c.case_id === 'AUTH-002-RISK').input), null, 2));"
+```
+
+Actual Core output at source commit `f16bf0b` (selected fields, unchanged values; the command prints the full result):
+
+```json
+{
+  "decision": "BLOCK",
+  "risk_score": 0.15,
+  "confidence": 0.75,
+  "reason_codes": [
+    "AUTHORITY_BOUNDARY"
+  ],
+  "reasoning": [
+    "No major structural risk detected in this lightweight evaluation.",
+    "The proposed operation lacks explicitly required consent or has been denied."
+  ],
+  "recommended_action": "Do not execute this operation; use an authorized alternative.",
+  "safer_objective": "Do not execute this operation; use an authorized alternative.",
+  "evaluator_version": "orienta_engine_v0.3"
+}
+```
+
+The low risk score does not override the explicit consent boundary. The first reasoning entry comes from the supporting risk scan; the authority check determines the final BLOCK decision. Scores and confidence are heuristic, not safety probabilities.
+
+**Enforcement scope:** this reproduces the Core decision only. No real account was changed and no external tool was blocked by this example. MCP tests include a simulated caller that withholds execution; real external-agent enforcement remains unvalidated. The calling system must prevent the operation.
 
 ## Why it exists
 
@@ -63,34 +130,6 @@ Local verification baseline: API commit `61eb563` and MCP commit `8a9f8de`. [Ver
 These suites have different scopes; they are not a universal safety score. API deployment, real database integration, and real external agent enforcement are **not validated by these results**.
 
 **Experimental:** browser workbench, reference-agent demos, heuristic text interpretation. **Not yet validated:** production effectiveness, real human handoff, real external tool enforcement, independent benchmark performance.
-
-## Quick Start
-
-Use Node.js 24 for the locally tested environment. Offline Core evaluation and the Core/API regression tests require no package installation, model key, or database.
-
-```bash
-git clone https://github.com/serenaw951-ai998/orientation-gate.git
-cd orientation-gate
-node src/gate_node.js examples/customer_support_demo_input.json
-node --test scripts/orientation-core.test.js
-```
-
-Direct use from the repository root:
-
-```js
-const { evaluateObjective } = require("./src/orientation_engine");
-
-const result = evaluateObjective({
-  objective: "Help the current user find an earlier appointment.",
-  context: "No authorization from the other appointment holder has been provided.",
-  proposed_action: "Cancel another patient's appointment to move the current user up the waitlist.",
-  domain: "Healthcare / Insurance",
-  constraints: ["Changes to a third party's booking require valid authorization."]
-});
-console.log(result.decision); // ESCALATE
-```
-
-The fields are evidence supplied by the caller, not permissions granted by Orienta. See the [limitations](docs/known-limitations.md).
 
 ## Run the evaluation
 

@@ -18,8 +18,8 @@ The MCP server already imported the same Core; sharing code alone did not preser
 
 ## Minimal corrections
 
-- [API commit 61eb563](https://github.com/serenaw951-ai998/orientation-gate/commit/61eb563381f264ef98deb6d662b6587ae7c5e26c): preserves the action separately, retaining legacy action aliases with canonical-field precedence.
-- [MCP commit 8a9f8de](https://github.com/serenaw951-ai998/orientation-gate/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750): adds optional proposed_action to the tool schema and Core call; explains the four canonical decisions and caller enforcement duties.
+- [API commit 61eb563](https://github.com/serenaw99/orienta/commit/61eb563381f264ef98deb6d662b6587ae7c5e26c): preserves the action separately, retaining legacy action aliases with canonical-field precedence.
+- [MCP commit 8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750): adds optional proposed_action to the tool schema and Core call; explains the four canonical decisions and caller enforcement duties.
 
 No Core rule or 14-case expectation changed in these fixes. After each fix the affected path returns ESCALATE / BLOCK / BLOCK for the three rows above.
 

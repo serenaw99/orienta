@@ -1,6 +1,6 @@
 # Current Local Verification
 
-Source baseline: [8a9f8de](https://github.com/serenaw951-ai998/orientation-gate/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750), including API fix 61eb563. Documentation finalization re-ran the commands below using Node.js v24.16.0 without changing runtime sources or fixture expectations.
+Source baseline: [8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750), including API fix 61eb563. Documentation finalization re-ran the commands below using Node.js v24.16.0 without changing runtime sources or fixture expectations.
 
 ## Scopes
 

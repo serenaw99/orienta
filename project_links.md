@@ -7,7 +7,7 @@
 ## Experimental demos
 
 - [Vercel workbench](https://orientation-gate-khaki.vercel.app/)
-- [GitHub Pages workbench](https://serenaw951-ai998.github.io/orientation-gate/)
+- [GitHub Pages workbench](https://serenaw99.github.io/orienta/)
 - [Reference Agent Sandbox](https://orientation-gate-khaki.vercel.app/agent-demo.html)
 - [Customer support demo](https://orientation-gate-khaki.vercel.app/customer-support-demo.html)
 
@@ -21,4 +21,4 @@ Old root URLs for orientation_gate_v04.html and orientation_gate_v05.1.html are 
 
 ## Project
 
-[GitHub repository](https://github.com/serenaw951-ai998/orientation-gate) · [SenuxTech](https://www.senuxtech.com/)
+[GitHub repository](https://github.com/serenaw99/orienta) · [SenuxTech](https://www.senuxtech.com/)
