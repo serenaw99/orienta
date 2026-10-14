@@ -1,4 +1,4 @@
-attle AI Agents Meetup — Research Methods, Findings & Orienta Follow-ups
+Seattle AI Agents Meetup — Research Methods, Findings & Orienta Follow-ups
 
 Date: October 13, 2026
 Status: Retrospective research notes, assembled from discussion and recollection; not an official transcript or independently audited account.
