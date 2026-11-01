@@ -1,6 +1,8 @@
 # Research Scenario: Recommendation Integrity
 
-**Status:** conceptual extension, not an implemented source-integrity service or validated customer workflow.
+Last reviewed: November 1, 2026 (Asia/Calcutta).
+
+**Status:** research extension with a runnable synthetic experiment; not an implemented source-integrity service or validated customer workflow.
 
 ## Proposed workflow
 
@@ -24,7 +26,22 @@ Source-concentration and manipulation scores are proposed inputs, not existing O
 - Risky: publish a confident ranking supported only by a set of unverified promotional pages with unclear independence.
 - Benign: provide a qualified comparison backed by independently verified evidence, with limitations disclosed.
 
-Expected policy behavior depends on evidence and application policy. Both exact cases remain untested.
+Expected policy behavior depends on evidence and application policy. Synthetic versions of these contrasts are executable in the experiment below; real source sets and customer workflows remain unvalidated.
+
+## Runnable synthetic comparison
+
+The [offline experiment](../../examples/recommendation-integrity/README.md) contains eight authored cases in four pairs covering provenance, shared publishers, conflicting evidence, and manipulation. It compares a simulated publisher without a checkpoint, the unchanged text-only Core, and a proposed structured-evidence adapter using the same Core. The adapter and its two-independent-group requirement are experiment-specific policy assumptions, not production capabilities or calibrated thresholds.
+
+```bash
+node --test scripts/recommendation-integrity.test.js
+node scripts/recommendation-integrity.js
+```
+
+The runner requires the existing 14-case Node baseline to reproduce first. It writes full inputs, outputs, disagreements, source records, and byte hashes in a fresh report directory under `eval-runs/`. Sources and evidence annotations are fictional; no retrieval, model, external publication, or real team is involved. This experiment is separate from the frozen wording study and does not change its inputs, labels, or target.
+
+The [recorded synthetic comparison](../evaluation/recommendation-integrity.md) includes every mismatch and the remaining qualified-comparison hold. It is evidence about this bounded adapter and fixture set, not source-poisoning detection or customer validation.
+
+Revalidated on November 1, 2026: the 14-case baseline reproduced; all eight cases completed in each condition, with 4/8 text-only Core agreement and 7/8 evidence-assisted agreement. All nine recommendation regression tests passed. [Latest verification](../evaluation/verification-2026-11-01.md) records the scope and remaining limitations.
 
 ## Validation requirements
 

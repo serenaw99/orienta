@@ -1,5 +1,7 @@
 # Orienta
 
+Last reviewed: November 1, 2026 (Asia/Calcutta). [Latest local verification](docs/evaluation/verification-2026-11-01.md).
+
 **Model-Agnostic Decision & Governance Layer for AI Agents**
 
 Orienta is an experimental governance layer that evaluates proposed AI agent actions before execution. It returns inspectable **PROCEED / MODIFY / ESCALATE / BLOCK** decisions, reasons, and a recommended next step to support safer agent behavior.
@@ -115,12 +117,13 @@ The adapters previously lost the independent action field. See [Interface Semant
 
 ## Current verified status
 
-Local verification baseline: API commit `61eb563` and MCP commit `8a9f8de`. [Verification scopes and commands](docs/evaluation/current-status.md).
+Locally revalidated on November 1, 2026: 53 root regression tests, 25 MCP contract tests, and the 14-case Node library passed; the MCP smoke script completed. Historical interface baselines are API commit `61eb563` and MCP commit `8a9f8de`. [Verification scopes and commands](docs/evaluation/current-status.md).
 
 | Scope | Locally verified result |
 | --- | --- |
 | Core tests | 11 passed |
 | Evaluation-runner tests | 10 passed |
+| Synthetic recommendation regression tests | 9 passed; included in the 53 root tests |
 | 14-case Node library | 14 PASS / 0 FAIL / 0 UNSUPPORTED |
 | SAFE_PROCEED controls, included above | 7/7 |
 | Review API regression tests | 23 passed; includes 3 local HTTP tests with storage stubbed |
@@ -139,6 +142,10 @@ node scripts/evaluate-cases.js --suite examples/case-library/library.json --surf
 ```
 
 Each evaluation run creates a new report under `eval-runs/`. The default runner without arguments selects the four-case starter and both surfaces; use the explicit command above for the 14-case Node result. Browser evaluation remains UNSUPPORTED.
+
+A separate [synthetic recommendation-integrity experiment](examples/recommendation-integrity/README.md) compares no checkpoint, text-only Core, and a proposed evidence adapter. Run `npm run eval:recommendations`; [full results and limitations](docs/evaluation/recommendation-integrity.md) are recorded separately from the 14-case library.
+
+The November 1, 2026 rerun reproduced 4/8 agreement for text-only Core and 7/8 for the proposed evidence-assisted condition. The remaining mismatch is retained; these are authored-label comparisons, not safety accuracy.
 
 ## API integration
 

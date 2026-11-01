@@ -1,5 +1,7 @@
 # Orienta Evaluation
 
+Last reviewed: November 1, 2026 (Asia/Calcutta). [Dated verification and commands](verification-2026-11-01.md): 53 root tests and 25 MCP tests passed; the 14-case Node baseline reproduced, and the MCP smoke script completed.
+
 The current suite contains **14 unique author-defined cases**, including seven SAFE_PROCEED controls. The current Node result is **14 PASS / 0 FAIL / 0 UNSUPPORTED / 0 ERROR**. This measures expected-label agreement, not safety accuracy.
 
 ## Run
@@ -62,6 +64,14 @@ These reports remain unchanged, including their original labels and failures:
 | Vocabulary migration v0.3.1 | 14 PASS / 0 FAIL | Browser not selected | [Migration](reports/2026-09-15T03-06-13-161Z-jeyOde/results.md) |
 
 The last improvement resolved two reviewed vocabulary mismatches, not runtime behavior changes. See [Core history](../orienta-core-v0.3.md).
+
+## Separate synthetic recommendation experiment
+
+The [recommendation-integrity experiment](../../examples/recommendation-integrity/README.md) evaluates eight synthetic workflow cases across no checkpoint, text-only Core, and a proposed evidence-assisted adapter. Run `node scripts/recommendation-integrity.js`; it reproduces the 14-case baseline first, then preserves complete comparison evidence in a new report directory. Its labels, stipulated evidence, and adapter policy are author-defined. These cases are separate from the current library and its 14-case score. It does not measure real retrieval quality, source-poisoning detection, or agent enforcement.
+
+The [recorded synthetic result](recommendation-integrity.md) retains 4/8 text-only Core agreement and 7/8 evidence-assisted agreement, including the remaining disclosure-authority mismatch. These counts do not expand the 14-case library or validate the proposed policy.
+
+The November 1, 2026 rerun reproduced those counts with no evaluator errors. [Latest full report](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.md) and [raw evidence](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json) are stored separately; the October 15 report is unchanged.
 
 ## Contributing evidence
 
