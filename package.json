@@ -4,6 +4,7 @@
   "description": "Orienta (Orientation Gate): a pre-execution governance layer that evaluates AI objectives and planned actions before they run.",
   "main": "src/orientation_engine.js",
   "scripts": {
+    "test": "node --test scripts/*.test.js",
     "demo": "node src/gate_node.js examples/customer_support_demo_input.json",
     "demo:youth": "node src/gate_node.js examples/youth_safety_demo_input.json",
     "demo:companion": "node src/gate_node.js examples/ai_companion_dependency_input.json",
@@ -12,7 +13,9 @@
     "vercel:dev": "vercel dev",
     "eval:cases": "node scripts/evaluate-cases.js",
     "test:cases": "node --test scripts/evaluate-cases.test.js",
-    "test:core": "node --test scripts/orientation-core.test.js"
+    "test:core": "node --test scripts/orientation-core.test.js",
+    "exp:004": "node --env-file-if-exists=.env.local scripts/runtime-enforcement.js",
+    "test:enforcement": "node --test scripts/runtime-enforcement.test.js"
   },
   "dependencies": {
     "mongodb": "^6.21.0"
