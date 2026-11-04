@@ -184,6 +184,8 @@ See [Known Limitations](docs/known-limitations.md), including hosted-demo data h
 
 Collaborators can investigate real agent enforcement, revision re-evaluation, human escalation, Agent-only vs Agent + Orienta, and cross-agent/model integration. These are proposed experiments, not implemented capabilities or completed studies. [Experiment questions and metrics](docs/open-experiments.md).
 
+An [EXP-004 development harness](experiments/runtime-enforcement/README.md) adds local synthetic account tools, a key-free scripted stress mode, and an optional Groq agent driver. Run `npm run exp:004` for the offline pilot. Read the [experiment and architecture walkthrough](docs/evaluation/exp004-experiment-and-architecture.md) for the implemented flow and November 3 pilot results. Its local execution logs are separate from the historical suites above; a harness is not a completed, independently reviewed real-agent study.
+
 ## Repository map
 
 | Path | Role |
