@@ -1,6 +1,6 @@
 # Current Local Verification
 
-Last verified: November 1, 2026 (Asia/Calcutta), using Node.js v24.16.0. Root regression tests passed 53/53 (11 Core, 10 runner, 23 API, nine recommendation). MCP contract tests passed 25/25, the MCP smoke script completed, and the 14-case Node baseline reproduced. The separate recommendation experiment reproduced its 4/8 text-only and 7/8 evidence-assisted agreement; its remaining mismatch is retained. [Commands, evidence, and limitations](verification-2026-11-01.md).
+Verification recorded on November 1, 2026, using Node.js v24.16.0: root regression tests passed 53/53 (11 Core, 10 runner, 23 API, nine recommendation). MCP contract tests passed 25/25, the MCP smoke script completed, and the 14-case Node baseline reproduced. The separate recommendation experiment reproduced its 4/8 text-only and 7/8 evidence-assisted agreement; its remaining mismatch is retained. [Commands, evidence, and limitations](verification-2026-11-01.md).
 
 Historical interface baseline: [8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750), including API fix 61eb563. Core/API/MCP runtime sources and existing fixture expectations remain unchanged. The recommendation experiment's fixture validation now rejects duplicate source references within a conflict.
 

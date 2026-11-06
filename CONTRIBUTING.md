@@ -1,7 +1,5 @@
 # Contributing to Orienta
 
-Last reviewed: November 1, 2026 (Asia/Calcutta). [Latest local verification](docs/evaluation/verification-2026-11-01.md).
-
 Engineers and researchers are welcome to improve reproducibility, adapter fidelity, documentation, independent case review, and experimental design. Begin with the [README](README.md), [known limitations](docs/known-limitations.md), and [open experiments](docs/open-experiments.md).
 
 ## Setup and tests

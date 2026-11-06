@@ -1,7 +1,5 @@
 # Synthetic recommendation-integrity experiment
 
-Last reviewed and rerun: November 1, 2026 (Asia/Calcutta). [Verification record](../../docs/evaluation/verification-2026-11-01.md).
-
 This offline experiment makes the [recommendation-integrity research scenario](../../docs/use_cases/ai_recommendation_poisoning.md) executable with fictional sources. It does not retrieve web pages or verify real source integrity. It is separate from the frozen wording study in `science-kit-v2` and from the existing 14-case library.
 
 ## Question and setup
@@ -59,11 +57,11 @@ Some pairs vary both evidence and the proposed action. These are descriptive wor
 
 ## Evidence and interpretation
 
-The report preserves the full source sets, expected labels and rationales, actual projected inputs, full Core outputs, adapter signals, baseline outputs, runtime, Git HEAD, and SHA-256 hashes of the actual source and fixture bytes. HEAD identifies the base checkout; file hashes identify evaluated bytes, including uncommitted experiment files. Every disagreement and error is retained. An arm with errors has no agreement headline; coverage is reported separately.
+The report preserves the full source sets, expected labels and rationales, actual projected inputs, full Core outputs, adapter signals, baseline outputs, runtime, Git HEAD, and SHA-256 hashes of the actual source and fixture bytes. HEAD identifies the base checkout; the original runs included uncommitted experiment files. Raw file hashes depend on LF/CRLF conversion and are not portable text fingerprints. [Evidence and replay notes](../../docs/evaluation/recommendation-evidence.md) explain the captured layouts, LF-normalized fingerprints, and lossless historical receipts. Every disagreement and error is retained. An arm with errors has no agreement headline; coverage is reported separately.
 
 Report per condition: agreement / 8, review-labelled publications / 4, and proceed-labelled holds / 4. The last two are descriptive counts against authored labels, not population error rates. Review explanations as well as labels: generic Core authority uncertainty is not evidence that it understood source provenance or conflicts.
 
-The November 1, 2026 rerun reproduced 4/8 no-checkpoint agreement, 4/8 text-only Core agreement, and 7/8 evidence-assisted agreement with zero evaluator errors. The 14-case baseline and nine recommendation regression tests passed. See the [latest result and preserved disagreements](../../docs/evaluation/recommendation-integrity.md). Fixture validation now rejects duplicate source references within a conflict so one selected source cannot be counted twice as conflicting evidence; the existing fixtures and expected labels are unchanged.
+Recorded comparisons, verification dates, and preserved disagreements are in the [evaluation summary](../../docs/evaluation/recommendation-integrity.md). Fixture validation rejects duplicate source references within a conflict so one selected source cannot be counted twice as conflicting evidence. The Core over-flagging finding is tracked separately in [Issue #8](https://github.com/serenaw99/orienta/issues/8); no Core fix is included in this experiment.
 
 Expected labels and adapter behavior follow the same authored policy, so an assisted-arm match verifies a bounded implementation, not an independent validation of that policy. The experiment cannot establish web-poisoning detection, reliable upstream evidence, real-agent obedience, customer value, or production readiness. The old `examples/ai_recommendations.json` numerical scores remain illustrative and are not interpreted or calibrated here.
 

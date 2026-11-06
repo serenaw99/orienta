@@ -1,6 +1,6 @@
 # Local verification — November 1, 2026
 
-Verification date: November 1, 2026 (Asia/Calcutta). Runtime: Node.js v24.16.0. This record covers the current working tree, including the uncommitted recommendation experiment. It is local regression evidence, not hosted-service or production validation.
+Verification date: November 1, 2026. Runtime: Node.js v24.16.0. This record describes verification before the initial experiment commit, including then-uncommitted experiment files. It is local regression evidence, not hosted-service or production validation. [Source identity and line-ending notes](recommendation-evidence.md).
 
 ## Executed checks
 
@@ -24,13 +24,13 @@ On PowerShell, `npm.cmd` was used to execute npm. The API tests stub storage and
 
 [Latest full report](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.md) · [Latest raw JSON](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json) · [Interpretation](recommendation-integrity.md)
 
-The source sets, labels, baseline, and decisions reproduce the October 15 run. The report records actual source-file hashes, Node version, base Git commit, complete inputs, all condition outputs, and remaining disagreements. The original October 15 report is preserved. An initial November 1 comparison, before the validation correction, is also preserved in [its own report directory](reports/recommendation-2026-11-01T16-17-56-442Z-7zU3RW/results.md); it has the same decisions and comparison counts.
+The source sets, labels, baseline, and decisions reproduce the October 15 run. The retained report records actual source-file hashes, Node version, base Git commit, complete inputs, all condition outputs, and remaining disagreements. The October 15 run and the initial November 1 run have identical evidence payloads. Their distinct metadata and original artifact hashes are preserved in [historical receipts](reports/recommendation-history.json), with [exact reconstruction and immutable original-file links](recommendation-evidence.md), rather than duplicate full report copies.
 
 ## Review corrections
 
 - Fixture validation now rejects repeated source IDs within a conflict. Without that check, a malformed conflict could count the same selected source twice and appear to involve two selected sources. The invalid-fixture regression test now covers that input. Existing fixtures and expected labels are unchanged; all 53 root tests passed again after the correction.
 - The contributor guide now uses the actual direct commands for API and MCP tests rather than advertising absent `test:api` / `test:mcp` shortcuts. Existing package scripts, including `test:core`, remain present.
-- Active README and evaluation documents carry today's review date and link to this evidence. Historical reports retain their original run dates.
+- Run dates and detailed experimental results are kept in evaluation documents; general project documentation links to them. Historical receipts retain their original metadata and artifact hashes.
 
 An initial smoke invocation from the repository root failed before server startup because the legacy smoke script resolves `server.js` relative to its working directory. Re-running it from the documented `mcp-server/` directory completed successfully. The smoke script's implementation was not changed.
 

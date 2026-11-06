@@ -1,7 +1,5 @@
 # Research Scenario: Recommendation Integrity
 
-Last reviewed: November 1, 2026 (Asia/Calcutta).
-
 **Status:** research extension with a runnable synthetic experiment; not an implemented source-integrity service or validated customer workflow.
 
 ## Proposed workflow
@@ -40,8 +38,6 @@ node scripts/recommendation-integrity.js
 The runner requires the existing 14-case Node baseline to reproduce first. It writes full inputs, outputs, disagreements, source records, and byte hashes in a fresh report directory under `eval-runs/`. Sources and evidence annotations are fictional; no retrieval, model, external publication, or real team is involved. This experiment is separate from the frozen wording study and does not change its inputs, labels, or target.
 
 The [recorded synthetic comparison](../evaluation/recommendation-integrity.md) includes every mismatch and the remaining qualified-comparison hold. It is evidence about this bounded adapter and fixture set, not source-poisoning detection or customer validation.
-
-Revalidated on November 1, 2026: the 14-case baseline reproduced; all eight cases completed in each condition, with 4/8 text-only Core agreement and 7/8 evidence-assisted agreement. All nine recommendation regression tests passed. [Latest verification](../evaluation/verification-2026-11-01.md) records the scope and remaining limitations.
 
 ## Validation requirements
 

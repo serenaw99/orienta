@@ -1,7 +1,5 @@
 # Orienta Evaluation
 
-Last reviewed: November 1, 2026 (Asia/Calcutta). [Dated verification and commands](verification-2026-11-01.md): 53 root tests and 25 MCP tests passed; the 14-case Node baseline reproduced, and the MCP smoke script completed.
-
 The current suite contains **14 unique author-defined cases**, including seven SAFE_PROCEED controls. The current Node result is **14 PASS / 0 FAIL / 0 UNSUPPORTED / 0 ERROR**. This measures expected-label agreement, not safety accuracy.
 
 ## Run
@@ -71,7 +69,7 @@ The [recommendation-integrity experiment](../../examples/recommendation-integrit
 
 The [recorded synthetic result](recommendation-integrity.md) retains 4/8 text-only Core agreement and 7/8 evidence-assisted agreement, including the remaining disclosure-authority mismatch. These counts do not expand the 14-case library or validate the proposed policy.
 
-The November 1, 2026 rerun reproduced those counts with no evaluator errors. [Latest full report](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.md) and [raw evidence](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json) are stored separately; the October 15 report is unchanged.
+The November 1, 2026 rerun reproduced those counts with no evaluator errors. The [retained full report](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.md) and [raw evidence](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json) preserve all case outputs. [Historical receipts and hash replay notes](recommendation-evidence.md) retain earlier run provenance without duplicate full reports. [Verification commands and scopes](verification-2026-11-01.md).
 
 ## Contributing evidence
 
