@@ -63,6 +63,14 @@ These reports remain unchanged, including their original labels and failures:
 
 The last improvement resolved two reviewed vocabulary mismatches, not runtime behavior changes. See [Core history](../orienta-core-v0.3.md).
 
+## Separate synthetic recommendation experiment
+
+The [recommendation-integrity experiment](../../examples/recommendation-integrity/README.md) evaluates eight synthetic workflow cases across no checkpoint, text-only Core, and a proposed evidence-assisted adapter. Run `node scripts/recommendation-integrity.js`; it reproduces the 14-case baseline first, then preserves complete comparison evidence in a new report directory. Its labels, stipulated evidence, and adapter policy are author-defined. These cases are separate from the current library and its 14-case score. It does not measure real retrieval quality, source-poisoning detection, or agent enforcement.
+
+The [recorded synthetic result](recommendation-integrity.md) retains 4/8 text-only Core agreement and 7/8 evidence-assisted agreement, including the remaining disclosure-authority mismatch. These counts do not expand the 14-case library or validate the proposed policy.
+
+The November 1, 2026 rerun reproduced those counts with no evaluator errors. The [retained full report](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.md) and [raw evidence](reports/recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json) preserve all case outputs. [Historical receipts and hash replay notes](recommendation-evidence.md) retain earlier run provenance without duplicate full reports. [Verification commands and scopes](verification-2026-11-01.md).
+
 ## Contributing evidence
 
 Use the [case template](../use_cases/case_template.md) and [contribution guide](../../CONTRIBUTING.md). Include exact sanitized inputs, expected policy basis, actual output, evaluator surface/version, and a nearby control. Retain failures and reviewer disagreement. Do not change expectations or add case-specific rules merely to improve the score.

@@ -7,6 +7,7 @@ Engineers and researchers are welcome to improve reproducibility, adapter fideli
 Node.js 24 is the locally tested environment. From a fresh checkout at the repository root:
 
 ```bash
+npm test
 node src/gate_node.js examples/customer_support_demo_input.json
 node --test scripts/orientation-core.test.js
 node --test scripts/evaluate-cases.test.js
@@ -28,7 +29,7 @@ cd ..
 
 Contract tests use real stdio and temporary logs. The smoke script appends synthetic entries to `mcp-server/orienta_audit.jsonl` (ignored by Git); set ORIENTA_AUDIT_LOG if you want a separate log. It prints results and is not an assertion-based enforcement test. On PowerShell, use `npm.cmd` if its script wrapper is blocked.
 
-`npm run test:core` and `npm run test:cases` are existing shortcuts. There is no root `npm test`, and MCP's `npm test` runs only the smoke script, not the contract suite.
+Root `npm test` discovers all `scripts/*.test.js` regression suites, including Core, evaluation runner, API (storage stubbed), and the synthetic recommendation experiment. It requires no dependency installation, model key, or database. The individual `test:core`, `test:cases`, and `test:recommendations` commands are preserved. Run `node --test scripts/api-review.test.js` to select the API suite. After installing the MCP dependencies, run `node --test mcp-server/contract.test.mjs` from the repository root for the separate MCP contract suite. There are no `test:api` or `test:mcp` shortcuts in the current root package. MCP's own `npm test` runs only the smoke script.
 
 ## Bugs and reproducible failures
 
