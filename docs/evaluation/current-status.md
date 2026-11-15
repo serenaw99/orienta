@@ -1,6 +1,8 @@
 # Current Local Verification
 
-Source baseline: [8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750), including API fix 61eb563. Documentation finalization re-ran the commands below using Node.js v24.16.0 without changing runtime sources or fixture expectations.
+Verification recorded on November 1, 2026, using Node.js v24.16.0: root regression tests passed 53/53 (11 Core, 10 runner, 23 API, nine recommendation). MCP contract tests passed 25/25, the MCP smoke script completed, and the 14-case Node baseline reproduced. The separate recommendation experiment reproduced its 4/8 text-only and 7/8 evidence-assisted agreement; its remaining mismatch is retained. [Commands, evidence, and limitations](verification-2026-11-01.md).
+
+Historical interface baseline: [8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee006f6500426a3798717e2cd91bfa2750), including API fix 61eb563. Core/API/MCP runtime sources and existing fixture expectations remain unchanged. The recommendation experiment's fixture validation now rejects duplicate source references within a conflict.
 
 ## Scopes
 
@@ -8,6 +10,7 @@ Source baseline: [8a9f8de](https://github.com/serenaw99/orienta/commit/8a9f8dee0
 | --- | --- | --- |
 | Core tests | 11 PASS / 0 FAIL | Core behavior and canonical output |
 | Runner tests | 10 PASS / 0 FAIL | Suite validation, failure reporting, historical output regression |
+| Recommendation tests | 9 PASS / 0 FAIL | Synthetic adapter policy, evidence selection, invalid fixtures, and error handling |
 | API tests | 23 PASS / 0 FAIL | Handler/adapter preservation; includes 3 local HTTP tests with storage stubs |
 | MCP tests | 25 PASS / 0 FAIL | 19 real stdio contract checks; 6 test-only caller simulations |
 | MCP smoke | Completed, exit 0 | Tool discovery, two reviews, risk catalog, audit-log read |
@@ -22,6 +25,7 @@ These are separate scopes, not an aggregate measure of safety.
 From the repository root:
 
 ```bash
+npm test
 node src/gate_node.js examples/customer_support_demo_input.json
 node --test scripts/orientation-core.test.js
 node --test scripts/evaluate-cases.test.js

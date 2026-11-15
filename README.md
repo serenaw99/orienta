@@ -115,12 +115,13 @@ The adapters previously lost the independent action field. See [Interface Semant
 
 ## Current verified status
 
-Local verification baseline: API commit `61eb563` and MCP commit `8a9f8de`. [Verification scopes and commands](docs/evaluation/current-status.md).
+Local verification baseline: API commit `61eb563` and MCP commit `8a9f8de`. [Verification scopes, dates, and commands](docs/evaluation/current-status.md).
 
 | Scope | Locally verified result |
 | --- | --- |
 | Core tests | 11 passed |
 | Evaluation-runner tests | 10 passed |
+| Synthetic recommendation regression tests | 9 passed; included in the 53 root tests |
 | 14-case Node library | 14 PASS / 0 FAIL / 0 UNSUPPORTED |
 | SAFE_PROCEED controls, included above | 7/7 |
 | Review API regression tests | 23 passed; includes 3 local HTTP tests with storage stubbed |
@@ -139,6 +140,8 @@ node scripts/evaluate-cases.js --suite examples/case-library/library.json --surf
 ```
 
 Each evaluation run creates a new report under `eval-runs/`. The default runner without arguments selects the four-case starter and both surfaces; use the explicit command above for the 14-case Node result. Browser evaluation remains UNSUPPORTED.
+
+A separate [synthetic recommendation-integrity experiment](examples/recommendation-integrity/README.md) compares no checkpoint, text-only Core, and a proposed evidence adapter. Run `npm run eval:recommendations`; [full results and limitations](docs/evaluation/recommendation-integrity.md) are recorded separately from the 14-case library.
 
 ## API integration
 
