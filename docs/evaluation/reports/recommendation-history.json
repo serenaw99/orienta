@@ -1,0 +1,111 @@
+{
+  "format": "recommendation-history-v1",
+  "canonical_report": "recommendation-2026-11-01T16-18-46-759Z-XZk13q/results.json",
+  "shared_fields": [
+    "suite",
+    "baseline",
+    "summary",
+    "rows"
+  ],
+  "shared_data_sha256": "7b6e421a8735d70ebcd0fabff37a23aa5c0717d304cfbc50a4b3f232251566d5",
+  "canonical_files": {
+    "src/orientation_engine.js": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "5453495555b5da9854299343f44508b698d21dbe1f3540d54a9b81e22695370b"
+    },
+    "src/orientation_checks.js": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "ff4a932694ba9dc3b10d0a18fedcdc5a3477b2c4d675b7c792b5b445e8343a7b"
+    },
+    "src/schema.json": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "31146a79aefe237196c6e891e258e814e85cead3107c92fc89c678e7e66a596f"
+    },
+    "scripts/evaluate-cases.js": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "9fc59af09bfdff6b0a5d936bcff943f4c478ace391394248bfcff80cf172956c"
+    },
+    "scripts/recommendation-integrity.js": {
+      "captured_line_endings": "LF",
+      "sha256_lf": "663774f34cb42e5ea7fb71862f5f64962767567a2226fe5ef22652e998cfe96e"
+    },
+    "examples/case-library/library.json": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "8e5698c5dde56860c161accddcdf8f4914c686a5bc0f00148fea7b9a35fa46e6"
+    },
+    "examples/case-library/schema.json": {
+      "captured_line_endings": "CRLF",
+      "sha256_lf": "79cea5c178fd2679e48d3e809f827f9750c7f0fa580d9db72b582486727dc549"
+    },
+    "examples/recommendation-integrity/fixtures.json": {
+      "captured_line_endings": "LF",
+      "sha256_lf": "f64589bbb96723e5402dec1f6abb69ed1079e22c23ecc0c4cab05b0c450f7fbb"
+    }
+  },
+  "runs": [
+    {
+      "metadata": {
+        "report_version": "1.0",
+        "status": "completed",
+        "evidence_scope": "synthetic_local_experiment",
+        "run_at": "2026-10-15T16:26:49.741Z",
+        "node_version": "v24.16.0",
+        "source_commit": "a00fa3e2ad840d5d81ee2f2fc0a8d14bc9686517",
+        "file_sha256": {
+          "src/orientation_engine.js": "eb0ad28ca20205d7768955e6e01ed9a692ce0d115399cf58c6e2bb8566db0674",
+          "src/orientation_checks.js": "b9d01d69b80f893c2e4c37f005654da4cbbfca59c145a5d868528a486ab1a49f",
+          "src/schema.json": "c81346f9459e8440f2b3001c71e4713b28691130df8f76b6542ed1e841b596aa",
+          "scripts/evaluate-cases.js": "6d67983db1446378edba375d2984c752bb4014340d90a31c9552034b7d9bc458",
+          "scripts/recommendation-integrity.js": "c589d008a70fdf2e8ee0c1e8e2ae7aef1253067445eb29161b4db89dca5c65e3",
+          "examples/case-library/library.json": "eb5321a0aac4d2e23918fac8faac813912a62c617d7be01896ba7c9affdf5ccc",
+          "examples/case-library/schema.json": "b70766953b38216aa5509f02867835da5abe3f9f88662c32e81c4835b310f9f8",
+          "examples/recommendation-integrity/fixtures.json": "f64589bbb96723e5402dec1f6abb69ed1079e22c23ecc0c4cab05b0c450f7fbb"
+        }
+      },
+      "artifacts": {
+        "json": {
+          "original_path": "recommendation-2026-10-15T16-26-49-741Z-7RXVrk/results.json",
+          "sha256": "09c66e0095c6c0bdc5ceb785c5e9ca092530806bc7eedf46828103a288d4b3f6",
+          "original_url": "https://github.com/gowtham432/orienta/blob/eabfddd9f163f69f97c36f5fdb3022acd3caa187/docs/evaluation/reports/recommendation-2026-10-15T16-26-49-741Z-7RXVrk/results.json"
+        },
+        "markdown": {
+          "original_path": "recommendation-2026-10-15T16-26-49-741Z-7RXVrk/results.md",
+          "sha256": "725b9b10aa72c15844ea5ee4f8b612655dfb2053b5fe151b56088520c4422e38",
+          "original_url": "https://github.com/gowtham432/orienta/blob/eabfddd9f163f69f97c36f5fdb3022acd3caa187/docs/evaluation/reports/recommendation-2026-10-15T16-26-49-741Z-7RXVrk/results.md"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "report_version": "1.0",
+        "status": "completed",
+        "evidence_scope": "synthetic_local_experiment",
+        "run_at": "2026-11-01T16:17:56.442Z",
+        "node_version": "v24.16.0",
+        "source_commit": "a00fa3e2ad840d5d81ee2f2fc0a8d14bc9686517",
+        "file_sha256": {
+          "src/orientation_engine.js": "eb0ad28ca20205d7768955e6e01ed9a692ce0d115399cf58c6e2bb8566db0674",
+          "src/orientation_checks.js": "b9d01d69b80f893c2e4c37f005654da4cbbfca59c145a5d868528a486ab1a49f",
+          "src/schema.json": "c81346f9459e8440f2b3001c71e4713b28691130df8f76b6542ed1e841b596aa",
+          "scripts/evaluate-cases.js": "6d67983db1446378edba375d2984c752bb4014340d90a31c9552034b7d9bc458",
+          "scripts/recommendation-integrity.js": "c589d008a70fdf2e8ee0c1e8e2ae7aef1253067445eb29161b4db89dca5c65e3",
+          "examples/case-library/library.json": "eb5321a0aac4d2e23918fac8faac813912a62c617d7be01896ba7c9affdf5ccc",
+          "examples/case-library/schema.json": "b70766953b38216aa5509f02867835da5abe3f9f88662c32e81c4835b310f9f8",
+          "examples/recommendation-integrity/fixtures.json": "f64589bbb96723e5402dec1f6abb69ed1079e22c23ecc0c4cab05b0c450f7fbb"
+        }
+      },
+      "artifacts": {
+        "json": {
+          "original_path": "recommendation-2026-11-01T16-17-56-442Z-7zU3RW/results.json",
+          "sha256": "b58069a4929fc618d8df28084a85ba4436f6cb7ede044252fe7c95393e466f9e",
+          "original_url": "https://github.com/gowtham432/orienta/blob/eabfddd9f163f69f97c36f5fdb3022acd3caa187/docs/evaluation/reports/recommendation-2026-11-01T16-17-56-442Z-7zU3RW/results.json"
+        },
+        "markdown": {
+          "original_path": "recommendation-2026-11-01T16-17-56-442Z-7zU3RW/results.md",
+          "sha256": "decfdc652eee18d3c9a1c1dc20bc602433d2f5653b5517b23cbc5f17e2f3aead",
+          "original_url": "https://github.com/gowtham432/orienta/blob/eabfddd9f163f69f97c36f5fdb3022acd3caa187/docs/evaluation/reports/recommendation-2026-11-01T16-17-56-442Z-7zU3RW/results.md"
+        }
+      }
+    }
+  ]
+}

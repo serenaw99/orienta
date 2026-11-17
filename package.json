@@ -16,6 +16,8 @@
     "test:core": "node --test scripts/orientation-core.test.js",
     "exp:004": "node --env-file-if-exists=.env.local scripts/runtime-enforcement.js",
     "test:enforcement": "node --test scripts/runtime-enforcement.test.js"
+    "eval:recommendations": "node scripts/recommendation-integrity.js",
+    "test:recommendations": "node --test scripts/recommendation-integrity.test.js"
   },
   "dependencies": {
     "mongodb": "^6.21.0"
